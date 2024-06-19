@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 추천 사이트</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>메뉴 추천 사이트</h1>
+    </header>
+
+    <main>
+        <div class="menu-recommender">
+            <h2>메뉴 추천 받기</h2>
+            <p>아래 버튼을 클릭하여 추천된 메뉴를 받으세요:</p>
+            <button id="generate-btn" class="btn">메뉴 추천 받기</button>
+            <div id="menu-result" class="menu-item">
+                <!-- 추천된 메뉴는 여기에 추가됩니다. -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 메뉴 추천 사이트. 모든 권리 보유.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style class="css">body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-recommender {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-recommender h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-recommender p {
+    margin-bottom: 10px;
+}
+
+#generate-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#generate-btn:hover {
+    background-color: #218838;
+}
+
+.menu-item {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
+</style>
+<script class="js">// 메뉴 추천 함수
+    function generateRandomMenu() {
+        const menuResult = document.getElementById('menu-result');
+        menuResult.innerHTML = ''; // 이전 결과 삭제
+    
+        const menus = [
+            '피자', '스테이크', '파스타', '샐러드', '스시', '커리', '버거', '타코', '햄버거',
+            '짜장면', '짬뽕', '볶음밥', '갈비', '삼겹살', '떡볶이', '쫄면', '냉면', '카레',
+            '돈까스', '카프레제 샐러드', '바베큐 리브', '치킨', '닭갈비', '피자', '마라탕', '마라샹궈',
+            '팟타이', '프랑스 파스토', '스페인 파에야', '덴마크 브로드', '모로코 태코', '인도 카레', '베트남 국수',
+            '타이 추어파다', '말레이시아 간자반', '라오스 카오납', '베트남 스프링롤', '캄보디아 아모크', '파키스탄 스태프커',
+            '종이볼 리볼로띠니', '에티오피아 드로핑', '베트남 송구', '인도네시아 떡토', '태국 캄풍', '라오스 선다유',
+            '필리핀 링푸따댄', '브루나이 나이아둔', '미얀마 오토후', '테히란코오밀리', '라오스 보미랑'
+        ];
+    
+        const randomIndex = Math.floor(Math.random() * menus.length);
+        const menu = menus[randomIndex];
+    
+        const menuElement = document.createElement('div');
+        menuElement.classList.add('menu-item');
+        menuElement.textContent = menu;
+        menuResult.appendChild(menuElement);
+    }
+    
+    // 버튼 클릭 이벤트 처리
+    document.getElementById('generate-btn').addEventListener('click', generateRandomMenu);
+    </script>
